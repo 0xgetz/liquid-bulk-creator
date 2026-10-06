@@ -67,6 +67,10 @@ node src/index.js --count 5
   `challenges.cloudflare.com` 和 `www.emailnator.com` 的 HTTPS
 - *（推荐）* 创建较多账户时使用轮换代理
 
+> **请使用住宅或移动代理。** Liquid Console 使用 Cloudflare Turnstile 保护注册。
+> 来自数据中心 IP 时会变成交互式验证（"Verify you are human"）并阻止自动化；
+> 来自干净的住宅 IP 则会无感通过。
+
 ## 用法
 
 ```bash

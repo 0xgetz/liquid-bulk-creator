@@ -68,6 +68,11 @@ node src/index.js --count 5
   `www.emailnator.com` への HTTPS アクセス
 - *(推奨)* 多数作成する場合のローテーションプロキシ
 
+> **レジデンシャルまたはモバイルプロキシを使用してください。** Liquid Console は
+> Cloudflare Turnstile で登録を保護しています。データセンター IP ではチャレンジが
+> 対話式(「Verify you are human」)になり自動化をブロックしますが、クリーンな
+> レジデンシャル IP では不可視で通過します。
+
 ## 使い方
 
 ```bash

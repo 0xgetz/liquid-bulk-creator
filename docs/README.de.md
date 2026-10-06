@@ -68,6 +68,12 @@ Ergebnisse liegen in `accounts/`.
   `challenges.cloudflare.com` und `www.emailnator.com`
 - *(Empfohlen)* rotierende Proxys für mehr als ein paar Konten
 
+> **Verwende residenzielle oder mobile Proxys.** Liquid Console schützt die
+> Registrierung mit Cloudflare Turnstile. Von einer Datacenter-IP wird die
+> Herausforderung interaktiv („Verify you are human") und blockiert die
+> Automatisierung; von einer sauberen residenziellen IP läuft sie unsichtbar
+> durch.
+
 ## Verwendung
 
 ```bash

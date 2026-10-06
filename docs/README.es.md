@@ -68,6 +68,11 @@ Los resultados se guardan en `accounts/`.
   `challenges.cloudflare.com` y `www.emailnator.com`
 - *(Recomendado)* proxies rotativos más allá de unas pocas cuentas
 
+> **Usa proxies residenciales o móviles.** Liquid Console protege el registro con
+> Cloudflare Turnstile. Desde una IP de centro de datos el desafío se vuelve
+> interactivo ("Verify you are human") y bloquea la automatización; desde una IP
+> residencial limpia pasa de forma invisible.
+
 ## Uso
 
 ```bash
