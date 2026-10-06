@@ -1,0 +1,152 @@
+<svg width="1280" height="820" viewBox="0 0 1280 820" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Liquid Bulk Creator architecture — 3D isometric diagram">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#070B18"/>
+      <stop offset="100%" stop-color="#0E1530"/>
+    </linearGradient>
+
+    <linearGradient id="topCLI" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#A78BFA"/><stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="topProxy" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#34D399"/><stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="topBrowser" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#38BDF8"/><stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+    <linearGradient id="topInbox" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FBBF24"/><stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+    <linearGradient id="topOut" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#F472B6"/><stop offset="100%" stop-color="#DB2777"/>
+    </linearGradient>
+
+    <filter id="glow2" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="7" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#7DD3FC"/>
+    </marker>
+  </defs>
+
+  <rect width="1280" height="820" fill="url(#bg)"/>
+
+  <!-- grid floor -->
+  <g stroke="#1E293B" stroke-width="1" opacity="0.55">
+    <path d="M120 700 L640 560 L1160 700 L640 840 Z" fill="none"/>
+    <path d="M200 700 L640 590 L1080 700" fill="none"/>
+    <path d="M280 700 L640 620 L1000 700" fill="none"/>
+    <path d="M640 560 L640 840" fill="none"/>
+  </g>
+
+  <text x="640" y="52" text-anchor="middle" fill="#E2E8F0" font-family="Inter,Segoe UI,sans-serif" font-size="34" font-weight="800">Liquid Bulk Creator · Architecture</text>
+  <text x="640" y="86" text-anchor="middle" fill="#94A3B8" font-family="Inter,Segoe UI,sans-serif" font-size="16">Orchestrated account + API-key pipeline with rotating egress</text>
+
+  <!-- isometric box helper drawn inline (top face + two sides) -->
+
+  <!-- CLI layers (front-left) -->
+  <g transform="translate(90,150)">
+    <!-- CLI box -->
+    <g filter="url(#glow2)">
+      <polygon points="0,60 130,0 260,60 130,120" fill="url(#topCLI)"/>
+      <polygon points="0,60 130,120 130,190 0,130" fill="#5B21B6"/>
+      <polygon points="260,60 130,120 130,190 260,130" fill="#4C1D95"/>
+    </g>
+    <text x="130" y="66" text-anchor="middle" fill="#fff" font-family="Inter,sans-serif" font-size="16" font-weight="700">src/index.js</text>
+    <text x="130" y="88" text-anchor="middle" fill="#EDE9FE" font-family="Inter,sans-serif" font-size="11">CLI · worker pool · retries</text>
+  </g>
+
+  <!-- Proxy box -->
+  <g transform="translate(90,360)">
+    <g filter="url(#glow2)">
+      <polygon points="0,60 130,0 260,60 130,120" fill="url(#topProxy)"/>
+      <polygon points="0,60 130,120 130,190 0,130" fill="#065F46"/>
+      <polygon points="260,60 130,120 130,190 260,130" fill="#064E3B"/>
+    </g>
+    <text x="130" y="66" text-anchor="middle" fill="#fff" font-family="Inter,sans-serif" font-size="15" font-weight="700">src/proxy.js</text>
+    <text x="130" y="88" text-anchor="middle" fill="#D1FAE5" font-family="Inter,sans-serif" font-size="11">rotating ProxyPool</text>
+  </g>
+
+  <!-- Browser box (center, elevated) -->
+  <g transform="translate(470,120)">
+    <g filter="url(#glow2)">
+      <polygon points="0,80 170,0 340,80 170,160" fill="url(#topBrowser)"/>
+      <polygon points="0,80 170,160 170,250 0,170" fill="#1E40AF"/>
+      <polygon points="340,80 170,160 170,250 340,170" fill="#1D4ED8"/>
+    </g>
+    <text x="170" y="80" text-anchor="middle" fill="#fff" font-family="Inter,sans-serif" font-size="17" font-weight="800">Playwright Chromium</text>
+    <text x="170" y="104" text-anchor="middle" fill="#DBEAFE" font-family="Inter,sans-serif" font-size="11">src/liquid.js · real browser automation</text>
+    <text x="170" y="200" text-anchor="middle" fill="#93C5FD" font-family="Inter,sans-serif" font-size="12">Clerk + Turnstile auto-pass</text>
+  </g>
+
+  <!-- Inbox box -->
+  <g transform="translate(470,430)">
+    <g filter="url(#glow2)">
+      <polygon points="0,60 130,0 260,60 130,120" fill="url(#topInbox)"/>
+      <polygon points="0,60 130,120 130,190 0,130" fill="#B45309"/>
+      <polygon points="260,60 130,120 130,190 260,130" fill="#92400E"/>
+    </g>
+    <text x="130" y="62" text-anchor="middle" fill="#fff" font-family="Inter,sans-serif" font-size="14" font-weight="700">src/emailnator.js</text>
+    <text x="130" y="84" text-anchor="middle" fill="#FEF3C7" font-family="Inter,sans-serif" font-size="11">real @gmail.com inbox</text>
+  </g>
+
+  <!-- Output box (right) -->
+  <g transform="translate(880,270)">
+    <g filter="url(#glow2)">
+      <polygon points="0,70 150,0 300,70 150,140" fill="url(#topOut)"/>
+      <polygon points="0,70 150,140 150,220 0,150" fill="#9D174D"/>
+      <polygon points="300,70 150,140 150,220 300,150" fill="#831843"/>
+    </g>
+    <text x="150" y="70" text-anchor="middle" fill="#fff" font-family="Inter,sans-serif" font-size="15" font-weight="700">src/output.js</text>
+    <text x="150" y="92" text-anchor="middle" fill="#FCE7F3" font-family="Inter,sans-serif" font-size="11">accounts.json · csv · keys.txt</text>
+  </g>
+
+  <!-- External targets on the right (flat tabs) -->
+  <g font-family="Inter,sans-serif" font-size="12">
+    <rect x="900" y="90" width="300" height="52" rx="12" fill="#0F172A" stroke="#334155"/>
+    <text x="920" y="122" fill="#93C5FD" font-weight="700">console.liquid.ai</text>
+    <text x="1080" y="122" fill="#64748B">Next.js + Server Actions</text>
+
+    <rect x="900" y="158" width="300" height="52" rx="12" fill="#0F172A" stroke="#334155"/>
+    <text x="920" y="190" fill="#A78BFA" font-weight="700">clerk.console.liquid.ai</text>
+    <text x="1080" y="190" fill="#64748B">auth + verify codes</text>
+
+    <rect x="900" y="226" width="300" height="52" rx="12" fill="#0F172A" stroke="#334155"/>
+    <text x="920" y="258" fill="#FBBF24" font-weight="700">emailnator.com/api</text>
+    <text x="1080" y="258" fill="#64748B">inbox provider</text>
+
+    <rect x="900" y="294" width="300" height="52" rx="12" fill="#0F172A" stroke="#334155"/>
+    <text x="920" y="326" fill="#34D399" font-weight="700">rotating proxy gateway</text>
+    <text x="1080" y="326" fill="#64748B">egress per account</text>
+  </g>
+
+  <!-- Flow arrows -->
+  <g fill="none" stroke="#7DD3FC" stroke-width="2.4" marker-end="url(#arrow)">
+    <path d="M350 300 C 400 300, 430 260, 470 220"/>
+    <path d="M640 380 L 610 430"/>
+    <path d="M810 250 C 860 250, 860 330, 880 340"/>
+  </g>
+  <g fill="none" stroke="#F59E0B" stroke-width="2.4" marker-end="url(#arrow)" opacity="0.9">
+    <path d="M700 470 C 800 470, 820 300, 915 250"/>
+  </g>
+  <g fill="none" stroke="#34D399" stroke-width="2.4" marker-end="url(#arrow)" opacity="0.9" stroke-dasharray="6 5">
+    <path d="M350 450 C 390 470, 420 480, 470 490"/>
+    <path d="M760 200 C 830 180, 860 130, 900 116"/>
+  </g>
+
+  <!-- Step legend -->
+  <g transform="translate(90,600)" font-family="Inter,sans-serif">
+    <text x="0" y="0" fill="#E2E8F0" font-size="15" font-weight="800">Pipeline per account</text>
+    <g font-size="13">
+      <circle cx="8" cy="30" r="6" fill="#A78BFA"/><text x="26" y="35" fill="#CBD5E1">1 · assign rotating proxy</text>
+      <circle cx="8" cy="58" r="6" fill="#FBBF24"/><text x="26" y="63" fill="#CBD5E1">2 · generate real @gmail.com inbox</text>
+      <circle cx="8" cy="86" r="6" fill="#38BDF8"/><text x="26" y="91" fill="#CBD5E1">3 · sign up (browser + Turnstile)</text>
+      <circle cx="8" cy="114" r="6" fill="#22C55E"/><text x="26" y="119" fill="#CBD5E1">4 · read code · verify email</text>
+      <circle cx="8" cy="142" r="6" fill="#DB2777"/><text x="26" y="147" fill="#CBD5E1">5 · create randomly-named API key</text>
+    </g>
+  </g>
+
+  <text x="1190" y="790" text-anchor="end" fill="#475569" font-family="Inter,sans-serif" font-size="12">Liquid Bulk Creator · MIT</text>
+</svg>
