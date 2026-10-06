@@ -177,6 +177,8 @@ All flags can also be set through environment variables (see `.env.example`):
 | `LBC_HEADLESS` | `true` | Run without a visible window |
 | `LBC_HUMAN_TYPING` | `true` | Type character-by-character |
 | `LBC_CODE_TIMEOUT_MS` | `180000` | How long to wait for the email code |
+| `LBC_INBOX_PROVIDER` | `emailnator` | `emailnator`, `mailtm`, or `auto` |
+| `LBC_INBOX_FALLBACK` | `true` | Fall back to mail.tm if emailnator fails |
 | `LBC_OUTPUT_DIR` | `accounts` | Where results go |
 
 ## How it works
@@ -196,6 +198,13 @@ signup with a Cloudflare Turnstile token. That token is produced *inside* the
 page, so there is no honest way to script signup with plain HTTP calls. Driving
 a real Chromium is both simpler and more reliable, and it keeps working when the
 UI changes its internal endpoints.
+
+**Why stealth + residential proxies?** Turnstile scores the browser *and* the
+IP. A vanilla headless browser from a datacenter IP is challenged interactively
+and blocks the flow. This project applies the standard
+`puppeteer-extra-plugin-stealth` patches and expects a **clean residential or
+mobile egress**; together they let the challenge pass invisibly, just like a
+real visitor.
 
 ## Output format
 
